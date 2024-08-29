@@ -14,8 +14,12 @@ fi
 
 
 ### required
-export HUB_DOMAIN="example.net"
-export ADM_EMAIL="admin@example.net"
+
+export Container_Dockerhub_Username="mozillareality"
+export Container_Tag="stable-latest"
+
+export HUB_DOMAIN="virtualhubs.online"
+export ADM_EMAIL="andreluiz.lugon@gmail.com"
 
 export Namespace="hcce"
 
@@ -27,14 +31,14 @@ export DB_HOST_T="pgbouncer-t"
 export PGRST_DB_URI="postgres://$DB_USER:$DB_PASS@pgbouncer/$DB_NAME"
 export PSQL="postgres://$DB_USER:$DB_PASS@pgbouncer/$DB_NAME"
 
-export SMTP_SERVER="changeMe"
-export SMTP_PORT="changeMe"
-export SMTP_USER="changeMe"
-export SMTP_PASS="changeMe"
+export SMTP_SERVER="email-smtp.us-east-2.amazonaws.com"
+export SMTP_PORT="587"
+export SMTP_USER="AKIAXYKJTFWF55W6ZFHB"
+export SMTP_PASS="BEDfON8tDO3C8bcfDVZYU63/Q9M7/Ah3bewOfL2Z/0zl"
 
-export NODE_COOKIE="changeMe"
-export GUARDIAN_KEY="changeMe"
-export PHX_KEY="changeMe"
+export NODE_COOKIE="xKLv5fPmBZ9H8gktrzgM"
+export GUARDIAN_KEY="QfBJEUzCXz4aErwV53m2"
+export PHX_KEY="EUfBjNpUfTXAGrAyDd77"
 
 export SKETCHFAB_API_KEY="?"
 export TENOR_API_KEY="?"
@@ -57,10 +61,4 @@ openssl req -x509 -newkey rsa:2048 -sha256 -days 36500 -nodes -keyout key.pem -o
 export initCert=$(base64 -i cert.pem | tr -d '\n')
 export initKey=$(base64 -i key.pem | tr -d '\n')
 
-
-read -p "Do you want to use persistent volumes? (y/N): " use_persistent_answer
-if [[ $use_persistent_answer =~ ^[Yy]$ ]]; then
-    envsubst < "persist.yam" > "$Namespace.yaml"
-else
-    envsubst < "hcce.yam" > "$Namespace.yaml"
-fi
+envsubst < "hcce.yam" > "hcce.yaml"

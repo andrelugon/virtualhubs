@@ -14,12 +14,8 @@ fi
 
 
 ### required
-
-export Container_Dockerhub_Username="mozillareality"
-export Container_Tag="stable-latest"
-
-export HUB_DOMAIN="virtualhubs.online"
-export ADM_EMAIL="andreluiz.lugon@gmail.com"
+export HUB_DOMAIN="example.net"
+export ADM_EMAIL="admin@example.net"
 
 export Namespace="hcce"
 
@@ -31,6 +27,7 @@ export DB_HOST_T="pgbouncer-t"
 export PGRST_DB_URI="postgres://$DB_USER:$DB_PASS@pgbouncer/$DB_NAME"
 export PSQL="postgres://$DB_USER:$DB_PASS@pgbouncer/$DB_NAME"
 
+<<<<<<< HEAD
 export SMTP_SERVER="CHANGEME"
 export SMTP_PORT="CHANGEME"
 export SMTP_USER="CHANGEME"
@@ -39,6 +36,16 @@ export SMTP_PASS="CHANGEME"
 export NODE_COOKIE="CHANGEME"
 export GUARDIAN_KEY="CHANGEME"
 export PHX_KEY="CHANGEME"
+=======
+export SMTP_SERVER="changeMe"
+export SMTP_PORT="changeMe"
+export SMTP_USER="changeMe"
+export SMTP_PASS="changeMe"
+
+export NODE_COOKIE="changeMe"
+export GUARDIAN_KEY="changeMe"
+export PHX_KEY="changeMe"
+>>>>>>> d7d51d3 (Correção do arquivo render_hcce.sh)
 
 export SKETCHFAB_API_KEY="?"
 export TENOR_API_KEY="?"
@@ -61,4 +68,10 @@ openssl req -x509 -newkey rsa:2048 -sha256 -days 36500 -nodes -keyout key.pem -o
 export initCert=$(base64 -i cert.pem | tr -d '\n')
 export initKey=$(base64 -i key.pem | tr -d '\n')
 
-envsubst < "hcce.yam" > "hcce.yaml"
+
+read -p "Do you want to use persistent volumes? (y/N): " use_persistent_answer
+if [[ $use_persistent_answer =~ ^[Yy]$ ]]; then
+    envsubst < "persist.yam" > "$Namespace.yaml"
+else
+    envsubst < "hcce.yam" > "$Namespace.yaml"
+fi

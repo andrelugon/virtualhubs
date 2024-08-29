@@ -27,7 +27,6 @@ export DB_HOST_T="pgbouncer-t"
 export PGRST_DB_URI="postgres://$DB_USER:$DB_PASS@pgbouncer/$DB_NAME"
 export PSQL="postgres://$DB_USER:$DB_PASS@pgbouncer/$DB_NAME"
 
-<<<<<<< HEAD
 export SMTP_SERVER="CHANGEME"
 export SMTP_PORT="CHANGEME"
 export SMTP_USER="CHANGEME"
@@ -36,16 +35,6 @@ export SMTP_PASS="CHANGEME"
 export NODE_COOKIE="CHANGEME"
 export GUARDIAN_KEY="CHANGEME"
 export PHX_KEY="CHANGEME"
-=======
-export SMTP_SERVER="changeMe"
-export SMTP_PORT="changeMe"
-export SMTP_USER="changeMe"
-export SMTP_PASS="changeMe"
-
-export NODE_COOKIE="changeMe"
-export GUARDIAN_KEY="changeMe"
-export PHX_KEY="changeMe"
->>>>>>> d7d51d3 (Correção do arquivo render_hcce.sh)
 
 export SKETCHFAB_API_KEY="?"
 export TENOR_API_KEY="?"

@@ -1,2 +1,8 @@
 community-edition/render_hcce.sh
+cert.pem
+key.pem
+private_key.pem
+public_key.pem
+hcce.yaml
+cbb.sh
 
